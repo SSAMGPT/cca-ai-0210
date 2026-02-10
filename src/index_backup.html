@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Continuous Sections with GSAP Observer</title>
+  <link rel="stylesheet" href="./style.scss">
+
+</head>
+
+<body>
+
+  <!-- Original Content -->
+  <!--
+Sections animate in and out on scroll. Scroll up or down and the sections will wrap around after hitting the start or end. Uses GSAP for the animations.
+-->
+
+
+  <section class="first">
+    <div class="outer">
+      <div class="inner">
+        <div class="bg one">
+          <h2 class="section-heading">샬롬.</h2>
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <section class="second">
+    <div class="outer">
+      <div class="inner">
+        <div class="bg">
+          <h2 class="section-heading">에피소드 하나</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="third">
+    <div class="outer">
+      <div class="inner">
+        <div class="bg">
+          <h2 class="section-heading">47%</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="fourth">
+    <div class="outer">
+      <div class="inner">
+        <div class="bg">
+          <h2 class="section-heading">거래 목적<br>transactional</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="fifth">
+    <div class="outer">
+      <div class="inner">
+        <div class="bg">
+          <h2 class="section-heading"><span class="subtitle">벤자민 블룸의 택소노미</span><br>기억-이해-적용-분석-평가-창조</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Observer.min.js"></script>
+  <script src="https://assets.codepen.io/16327/SplitText3.min.js"></script>
+  <script src="./script.js"></script>
+
+</body>
+
+</html>

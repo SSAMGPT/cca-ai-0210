@@ -1,0 +1,1188 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
+$bg-gradient: linear-gradient(180deg,
+    rgba(0, 0, 0, 0.6) 50%,
+    rgba(0, 0, 0, 0.1) 100%);
+
+* {
+  box-sizing: border-box;
+  user-select: none;
+}
+
+a {
+  color: var(--color-surface-white);
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 7.5vw, 7.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -1px; // Tighten letter spacing
+  text-align: center;
+  margin: 0 auto;
+  width: 90vw;
+  max-width: 1200px;
+  text-transform: none;
+}
+
+header {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  width: 100%;
+  z-index: 3;
+  height: 7em;
+  font-size: clamp(0.66rem, 2vw, 1rem);
+  letter-spacing: 0.5em;
+}
+
+section {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  position: fixed;
+  visibility: hidden;
+
+  .outer,
+  .inner {
+    width: 100%;
+    height: 100%;
+    overflow-y: hidden;
+  }
+
+  .bg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background-size: cover;
+    background-position: center;
+
+    h2 {
+      z-index: 999;
+    }
+
+    .clip-text {
+      overflow: hidden;
+    }
+  }
+}
+
+.first {
+  .bg {
+    background-color: #225DDF;
+    background-image: none;
+
+    .heading-container {
+      position: relative;
+      display: inline-block;
+      width: fit-content;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    h2 {
+      color: #fff;
+      width: auto;
+      margin: 0;
+      position: relative;
+      z-index: 1; // Below bubble's shadow but provides base
+    }
+
+    .chat-bubble {
+      position: absolute;
+      top: -3.5vh;
+      left: 80%; // Deeper overlap for 3D feel
+      padding: 10px 22px;
+      color: white;
+      background: #0B93F6;
+      border-radius: 20px;
+      z-index: 1000;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+
+      &:active {
+        transform: scale(0.95);
+      }
+
+      p {
+        margin: 0;
+        font-size: clamp(1rem, 2.2vw, 2rem);
+        font-weight: 800;
+        white-space: nowrap;
+        text-transform: none;
+        pointer-events: none;
+      }
+    }
+  }
+}
+
+.loud {
+  animation: loud 1.2s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform-origin: center center;
+}
+
+@keyframes loud {
+  20% {
+    transform: rotate3d(0, 0, 1, 5deg) scale3d(1.5, 1.5, 1.5);
+  }
+
+  25% {
+    transform: rotate3d(0, 0, 1, -5deg) scale3d(1.5, 1.5, 1.5);
+  }
+
+  30% {
+    transform: rotate3d(0, 0, 1, 5deg) scale3d(1.5, 1.5, 1.5);
+  }
+
+  35% {
+    transform: rotate3d(0, 0, 1, -5deg) scale3d(1.5, 1.5, 1.5);
+  }
+
+  40% {
+    transform: rotate3d(0, 0, 1, 5deg) scale3d(1.5, 1.5, 1.5);
+  }
+
+  45% {
+    transform: rotate3d(0, 0, 1, -5deg) scale3d(1.5, 1.5, 1.5);
+  }
+
+  50% {
+    transform: rotate3d(0, 0, 1, 5deg) scale3d(1.5, 1.5, 1.5);
+  }
+
+  60% {
+    transform: rotate3d(0, 0, 1, 5deg) scale3d(1.5, 1.5, 1.5);
+  }
+
+  to {
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+}
+
+.second {
+  .bg {
+    background-color: #7C69EF;
+    // Deep, rich lavender gradient
+    background-image: linear-gradient(135deg, #7C69EF 0%, #A695F9 100%);
+
+    h2 {
+      color: #fff;
+    }
+
+    .heading-with-icon {
+      position: relative;
+      display: inline-block;
+      width: fit-content;
+      margin: 0 auto;
+    }
+
+    h2 {
+      color: #fff;
+      width: auto;
+      margin: 0;
+    }
+
+    .episode-icon {
+      position: absolute;
+      width: clamp(3rem, 12vw, 12rem);
+      height: auto;
+      right: -6rem;
+      top: -5rem; // Moved slightly down from -7rem
+      pointer-events: none;
+      z-index: 2;
+      transform: rotate(15deg);
+    }
+  }
+}
+
+.third {
+  .bg {
+    background-color: #000000;
+    background-image: none;
+
+    .content-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 12vh 8vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+
+    h2 {
+      font-size: clamp(3rem, 10vw, 10rem);
+      margin: 0 0 2vh 0;
+      text-align: left;
+      width: auto;
+      color: #fff;
+    }
+
+    .description-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5vh; // Restored original gap
+
+      .desc-group {
+        display: none; // Keep for sequential reveal logic
+        flex-direction: column;
+        gap: 0.5vh;
+      }
+
+      .desc-line {
+        font-size: clamp(1.45rem, 3vw, 3.6rem); // Restored original font size
+        font-weight: 700;
+        line-height: 1.2;
+        color: #ffffff; // Restored original color
+        opacity: 0;
+        text-transform: none;
+      }
+    }
+  }
+}
+
+
+
+.fourth {
+  .bg {
+    background-color: #FAF4E6;
+    background-image: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .heading-with-icon {
+      position: relative;
+      display: inline-block;
+      width: fit-content;
+      margin: 0 auto;
+    }
+
+    h2 {
+      color: #000000;
+      width: auto;
+      margin: 0;
+    }
+
+    .brain-icon {
+      position: absolute;
+      width: clamp(3rem, 12vw, 12rem);
+      height: auto;
+      right: -6rem;
+      top: -5rem;
+      pointer-events: none;
+      z-index: 2;
+      transform: rotate(-10deg);
+    }
+  }
+}
+
+.fifth {
+  .bg {
+    background-color: #000000;
+    background-image: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .heading-with-icon {
+      position: relative;
+      display: inline-block;
+      width: fit-content;
+      margin: 0 auto;
+    }
+
+    h2 {
+      color: #ffffff;
+      text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      width: auto;
+      margin: 0;
+    }
+
+    .arrow-icon {
+      position: absolute;
+      width: clamp(3rem, 10vw, 10rem);
+      height: auto;
+      right: -5rem; // Adjusted positioning
+      top: -3rem;
+      pointer-events: none;
+      z-index: 2;
+      transform: rotate(-15deg);
+    }
+  }
+}
+
+.sixth {
+  .bg {
+    background-color: #225DDF;
+    background-image: none;
+
+    .content-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 12vh 8vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 6vw, 6rem);
+      margin: 0 0 2vh 0;
+      text-align: left;
+      width: auto;
+      color: #fff;
+    }
+
+    .description-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6vh; // Increased spacing between groups
+
+      .desc-group {
+        display: none; // Hide by default
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5vh;
+
+        &.intro {
+          display: flex; // Show intro initially
+        }
+
+        &.group-1 .desc-line {
+          color: #DBFD18; // Neon Lime-Yellow
+        }
+      }
+
+      .desc-line {
+        font-size: clamp(1.74rem, 3.6vw, 4.32rem);
+        font-weight: 700;
+        line-height: 1.2;
+        color: #ffffff;
+        opacity: 0;
+        text-align: left;
+        text-transform: none;
+      }
+    }
+  }
+}
+
+.seventh {
+  .bg {
+    background-color: #67F609;
+    background-image: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .heading-with-icon {
+      position: relative;
+      display: inline-block;
+      width: fit-content;
+      margin: 0 auto;
+    }
+
+    h2 {
+      color: #000;
+      width: auto; // Override global 90vw to fit content
+      margin: 0;
+    }
+
+    .thinking-icon {
+      position: absolute;
+      width: clamp(3rem, 12vw, 12rem); // Scale with text
+      height: auto;
+      right: -6rem; // Moved further right to clear '각'
+      top: -7rem; // Moved higher up to be 'diagonally above'
+      pointer-events: none;
+      z-index: 2;
+
+      // Initial state for animation if needed, or just static
+      transform: rotate(15deg);
+    }
+  }
+}
+
+.eighth {
+  .bg {
+    background-color: #225DDF;
+    background-image: none;
+
+    .content-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 12vh 8vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 6vw, 6rem);
+      margin: 0 0 2vh 0;
+      text-align: left;
+      width: auto;
+      color: #fff;
+    }
+
+    .description-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.8vh; // Reduced gap to pull indicator up
+
+      .desc-group {
+        display: none; // Hide by default to not occupy space
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5vh;
+
+        &.intro {
+          display: flex; // Show intro initially
+          margin-bottom: 2vh; // Reduced from 4vh
+        }
+
+        &.group-1 .desc-line,
+        &.group-2 .desc-line,
+        &.group-3 .desc-line,
+        &.group-4 .desc-line {
+          color: #DBFD18; // Neon Lime-Yellow for the cases
+        }
+      }
+
+      .desc-line {
+        font-size: clamp(1.74rem, 3.6vw, 4.32rem);
+        font-weight: 700;
+        line-height: 1.2;
+        color: #ffffff;
+        opacity: 0;
+        text-align: left;
+        text-transform: none;
+      }
+    }
+
+  }
+}
+
+.ninth {
+  .bg {
+    background-color: #f7f7f7; // A clean, flat off-white/light gray
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .content-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 12vh 8vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start; // Align to left for chat flow
+    }
+
+    h2 {
+      font-size: clamp(2.5rem, 6.5vw, 6.5rem);
+      margin: 0;
+      text-align: left;
+      width: auto;
+      color: #000000;
+      letter-spacing: -2px;
+      position: absolute;
+      top: 10vh; // Higher up
+      left: 8vw;
+      z-index: 10;
+    }
+
+    // iPhone Frame Styling - Large Top-Partial View
+    .iphone-frame {
+      position: absolute;
+      bottom: -25vh; // Moved further down as requested
+      right: 5vw;
+      width: 550px; // Larger screen
+      height: 85vh;
+      background: #000;
+      border-radius: 60px;
+      border: 12px solid #1a1a1a;
+      box-shadow: 0 50px 100px rgba(0, 0, 0, 0.4), inset 0 0 2px 2px rgba(255, 255, 255, 0.1);
+      z-index: 5;
+      overflow: hidden;
+
+      // Notch
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 250px;
+        height: 35px;
+        background: #000;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        z-index: 100;
+      }
+
+      .iphone-screen {
+        width: 100%;
+        height: 100%;
+        background: #f7f7f7;
+        padding: 80px 30px 40px;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    .description-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      height: 100%;
+      gap: 30px; // Larger gap for larger bubbles
+
+      .desc-group {
+        display: none; // Sequential reveal
+        width: 100%;
+        flex-direction: column;
+      }
+    }
+
+    // iOS Component Styles (Inside iPhone) - Enlarged
+    .chat-bubble {
+      position: relative;
+      padding: 18px 28px;
+      border-radius: 35px;
+      max-width: 90%;
+      word-wrap: break-word;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+
+      p {
+        margin: 0;
+        font-size: clamp(1.4rem, 3.5vw, 2.2rem); // 시원시원한 크기
+        font-weight: 700;
+        line-height: 1.3;
+        letter-spacing: -0.03em;
+        text-transform: none;
+      }
+
+      &.from-them {
+        background: #E5E5EA;
+        color: black;
+        align-self: flex-start;
+        border-bottom-left-radius: 8px;
+
+        &::before {
+          content: "";
+          position: absolute;
+          z-index: 2;
+          bottom: 0;
+          left: -12px;
+          height: 25px;
+          border-left: 25px solid #E5E5EA;
+          border-bottom-right-radius: 20px 15px;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          z-index: 3;
+          bottom: 0;
+          left: 0;
+          width: 25px;
+          height: 25px;
+          background: #f7f7f7;
+          border-bottom-right-radius: 12px;
+          transform: translateX(-25px);
+        }
+      }
+
+      &.from-me {
+        background: #0B93F6;
+        color: white;
+        align-self: flex-end;
+        border-bottom-right-radius: 8px;
+        margin-left: auto;
+
+        &::before {
+          content: "";
+          position: absolute;
+          z-index: 2;
+          bottom: 0;
+          right: -12px;
+          height: 25px;
+          border-right: 25px solid #0B93F6;
+          border-bottom-left-radius: 20px 15px;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          z-index: 3;
+          bottom: 0;
+          right: 0;
+          width: 25px;
+          height: 25px;
+          background: #f7f7f7;
+          border-bottom-left-radius: 12px;
+          transform: translateX(25px);
+        }
+      }
+    }
+
+    .typing-indicator {
+      display: none; // Controlled by JS
+      width: fit-content;
+      min-width: 50px;
+      min-height: 36px;
+      border-radius: 20px;
+      padding: 0;
+      position: relative;
+      animation: 2s bulge infinite ease-out;
+      justify-content: center;
+      align-items: center;
+      transform: scale(1.4);
+      will-change: transform, opacity;
+
+      &.on-left {
+        align-self: flex-start;
+        background-color: #E5E5EA;
+        margin-left: 20px;
+        transform-origin: left bottom;
+
+        &::before,
+        &::after {
+          background-color: #E5E5EA;
+        }
+
+        span {
+          background-color: #9E9EA1;
+          opacity: 0.4;
+        }
+      }
+
+      &.on-right {
+        align-self: flex-end;
+        background-color: #0B93F6;
+        margin-left: auto;
+        margin-right: 20px;
+        transform-origin: right bottom;
+
+        &::before,
+        &::after {
+          background-color: #0B93F6;
+          left: auto;
+          right: 0px;
+        }
+
+        &::after {
+          right: -6px;
+        }
+
+        // Adjust right tail
+        span {
+          background-color: #ffffff;
+          opacity: 0.7;
+        }
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        left: 0px;
+        height: 12px;
+        width: 12px;
+        border-radius: 50%;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: -6px;
+        bottom: -5px;
+        height: 6px;
+        width: 6px;
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+.typing-indicator {
+  $ti-color-bg: #E6E7ED;
+  background-color: $ti-color-bg;
+  will-change: transform;
+  width: fit-content;
+  min-width: 50px;
+  min-height: 36px;
+  border-radius: 20px;
+  padding: 0;
+  display: none; // Hidden by default
+  margin: 1vh 0 0 10px;
+  position: relative;
+  animation: 2s bulge infinite ease-out;
+
+  // Flex for centering dots
+  justify-content: center;
+  align-items: center;
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0px;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background-color: $ti-color-bg;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: -6px;
+    bottom: -5px;
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+    background-color: $ti-color-bg;
+  }
+
+  span {
+    height: 8px;
+    width: 8px;
+    margin: 0 1px; // Tight spacing
+    background-color: #9E9EA1;
+    display: block;
+    border-radius: 50%;
+    opacity: 0.4;
+
+    @for $i from 1 through 3 {
+      &:nth-of-type(#{$i}) {
+        animation: 1s blink infinite ($i * .3333s);
+      }
+    }
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes bulge {
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+h2 * {
+  will-change: transform;
+}
+
+.faith-section {
+  .bg {
+    background-color: #1a237e; // Deep Indigo
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h2 {
+      color: #ffffff;
+      text-align: center;
+      line-height: 1.4;
+      font-weight: 800;
+      letter-spacing: -2px;
+    }
+  }
+}
+
+.keywords-faith-section {
+  .bg {
+    background-color: #004d40; // Deep Dark Teal (Contrasts with previous Indigo)
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .content-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5vh;
+      width: 100%;
+      max-width: 1000px;
+      padding: 5vh 5vw;
+
+      .final-title {
+        color: #ffffff; // Reverted to clean white
+        font-size: clamp(2.16rem, 6vw, 4.8rem); // Increased by 1.2x
+        font-weight: 800;
+        margin: 0 0 5vh;
+        text-align: center;
+        opacity: 0; // Animated
+        display: none; // Don't take space until clicked
+        letter-spacing: -1.5px;
+        line-height: 1.2;
+      }
+
+      .keyword-row {
+        display: flex;
+        justify-content: center;
+        gap: 60px;
+        width: 100%;
+      }
+
+      .keyword-wrapper {
+        position: relative;
+        flex: 1;
+        max-width: 350px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .faith-keyword {
+        background: #ffffff;
+        color: #000000;
+        padding: 22px 50px;
+        border-radius: 50px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        opacity: 0;
+        width: 100%;
+        text-align: center;
+        position: relative;
+        z-index: 2;
+
+        p {
+          margin: 0;
+          font-size: clamp(1.4rem, 3.5vw, 2.8rem);
+          font-weight: 800;
+          letter-spacing: -1px;
+        }
+      }
+
+      .sub-tag {
+        position: absolute;
+        top: -35px;
+        right: -30px;
+        background: #67F609; // Neon Green
+        color: #000000;
+        padding: 10px 25px;
+        border-radius: 25px;
+        z-index: 3;
+        opacity: 0;
+        transform: scale(0.8);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        pointer-events: none;
+
+        p {
+          margin: 0;
+          font-size: clamp(1rem, 2.5vw, 1.8rem);
+          font-weight: 800;
+          letter-spacing: -0.5px;
+          white-space: nowrap;
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          bottom: -8px;
+          left: 20%;
+          width: 0;
+          height: 0;
+          border-left: 10px solid transparent;
+          border-right: 10px solid transparent;
+          border-top: 12px solid #67F609;
+          transform: rotate(-15deg);
+        }
+      }
+    }
+  }
+}
+
+.video-section {
+  .bg {
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .video-container {
+      width: clamp(300px, 85vw, 1200px);
+      aspect-ratio: 16 / 9;
+      background: #1a1a1a;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 255, 255, 0.05);
+
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+    }
+  }
+}
+
+.compass-section {
+  .bg {
+    background-color: #FF9800; // Vibrant Orange
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .content-container {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1vh;
+      padding-bottom: 5vh;
+
+      .bubble-wrapper {
+        position: relative;
+        margin-top: 3vh;
+        margin-bottom: 0;
+      }
+
+      .chat-bubble {
+        padding: 12px 28px;
+        color: white;
+        background: #0B93F6;
+        border-radius: 30px;
+        z-index: 10;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+
+        p {
+          margin: 0;
+          font-size: clamp(1.44rem, 4.2vw, 3rem);
+          font-weight: 800;
+          white-space: nowrap;
+          text-transform: none;
+        }
+      }
+
+      h2 {
+        font-size: clamp(2.5rem, 6.5vw, 6.5rem); // Consistent with other sections
+        color: #ffffff; // White text on Orange
+        margin: 4vh 0 0;
+        max-width: 90vw;
+        line-height: 1.15;
+        font-weight: 800;
+        letter-spacing: -2px;
+        text-align: center;
+        word-break: keep-all;
+      }
+
+      .qr-code {
+        width: clamp(120px, 20vw, 180px);
+        height: auto;
+        margin-top: 4vh;
+        background: white;
+        padding: 10px;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        display: block;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+    }
+  }
+}
+
+.guiding-section {
+  .bg {
+    background-color: #673AB7; // Premium Deep Purple
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .content-container {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1vh;
+      padding-bottom: 5vh;
+
+      .bubble-wrapper {
+        position: relative;
+        margin-top: 3vh;
+        margin-bottom: 0;
+      }
+
+      .chat-bubble {
+        padding: 18px 32px;
+        color: white;
+        background: #0B93F6;
+        border-radius: 40px;
+        z-index: 10;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+
+        p {
+          margin: 0;
+          font-size: clamp(1.6rem, 4.5vw, 3.2rem);
+          font-weight: 800;
+          white-space: nowrap;
+          text-transform: none;
+        }
+      }
+
+      h2 {
+        font-size: clamp(2.5rem, 6.5vw, 6.5rem); // Large bold heading like Compass
+        color: #ffffff;
+        margin: 4vh 0 0;
+        max-width: 90vw;
+        line-height: 1.15;
+        font-weight: 800;
+        letter-spacing: -2px;
+        text-align: center;
+        word-break: keep-all;
+      }
+
+      .qr-code {
+        width: clamp(120px, 20vw, 180px);
+        height: auto;
+        margin-top: 4vh;
+        background: white;
+        padding: 10px;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        display: block;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+    }
+  }
+}
+
+.final-section {
+  .bg {
+    background-color: #1a237e; // Shared with faith-section
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .content-wrapper {
+      text-align: center;
+    }
+
+    h2 {
+      color: #ffffff;
+      font-size: clamp(3rem, 10vw, 10rem);
+      font-weight: 800;
+      letter-spacing: -3px;
+    }
+  }
+}
+
+.tenth {
+  .bg {
+    background-color: #67F609; // Neon Green
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .content-container {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1vh;
+      padding-bottom: 5vh; // Reduced to make room for QR code
+
+      .bubble-wrapper {
+        position: relative;
+        margin-top: 3vh;
+        margin-bottom: 0;
+      }
+
+      .chat-bubble {
+        padding: 12px 28px;
+        color: white;
+        background: #0B93F6;
+        border-radius: 30px;
+        z-index: 10;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+
+        p {
+          margin: 0;
+          font-size: clamp(1.44rem, 4.2vw, 3rem);
+          font-weight: 800;
+          white-space: nowrap;
+          text-transform: none;
+        }
+      }
+
+      h2 {
+        font-size: clamp(1.68rem, 4.8vw, 3.84rem);
+        color: #000000;
+        margin: 4vh 0 0;
+        max-width: 95vw;
+        line-height: 1.2;
+        font-weight: 800;
+        letter-spacing: -1.5px;
+        text-align: center;
+        word-break: keep-all;
+      }
+
+      .qr-code {
+        width: clamp(120px, 20vw, 180px);
+        height: auto;
+        margin-top: 4vh;
+        background: white;
+        padding: 10px;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        display: block;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none; // Disable interaction until revealed
+      }
+    }
+  }
+}
