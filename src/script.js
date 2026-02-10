@@ -541,6 +541,9 @@ Observer.create({
   wheelSpeed: -1,
   onDown: () => !animating && handleBack(),
   onUp: () => !animating && currentIndex < sections.length - 1 && gotoSection(currentIndex + 1, 1),
+  onRelease: (self) => {
+    if (self.isClick) handleAdvance();
+  },
   tolerance: 10,
   preventDefault: true
 });
@@ -555,8 +558,13 @@ gotoSection(savedIndex, 1);
 // horizontal version: https://codepen.io/GreenSock/pen/xxWdeMK
 
 // Click interaction for page 3 (index 2) and page 6 (index 5)
-window.addEventListener("click", () => {
+const handleAdvance = (e) => {
   if (animating) return;
+
+  // If the click was on one of the QR codes or a specific link, don't trigger advance
+  if (e && e.target && (e.target.closest(".qr-code") || e.target.closest("a") || e.target.closest("iframe"))) {
+    return;
+  }
 
   let stepHandled = false;
 
@@ -648,7 +656,9 @@ window.addEventListener("click", () => {
   if (!stepHandled && currentIndex < sections.length - 1) {
     gotoSection(currentIndex + 1, 1);
   }
-});
+};
+
+window.addEventListener("click", handleAdvance);
 
 function revealBubble(num, sectionClass) {
   let group = document.querySelector(`${sectionClass} .group-${num}`);
