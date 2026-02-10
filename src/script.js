@@ -558,11 +558,12 @@ gotoSection(savedIndex, 1);
 // horizontal version: https://codepen.io/GreenSock/pen/xxWdeMK
 
 // Click interaction for page 3 (index 2) and page 6 (index 5)
-const handleAdvance = (e) => {
+// Use a global function so it's always accessible to Observer
+window.handleAdvance = (e) => {
   if (animating) return;
 
-  // If the click was on one of the QR codes or a specific link, don't trigger advance
-  if (e && e.target && (e.target.closest(".qr-code") || e.target.closest("a") || e.target.closest("iframe"))) {
+  // Don't advance if clicking these elements
+  if (e && e.target && (e.target.closest(".qr-code") || e.target.closest("a") || e.target.closest("iframe") || e.target.closest(".episode-icon"))) {
     return;
   }
 
@@ -658,7 +659,7 @@ const handleAdvance = (e) => {
   }
 };
 
-window.addEventListener("click", handleAdvance);
+window.addEventListener("click", window.handleAdvance);
 
 function revealBubble(num, sectionClass) {
   let group = document.querySelector(`${sectionClass} .group-${num}`);
