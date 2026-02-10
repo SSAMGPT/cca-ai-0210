@@ -4,7 +4,7 @@
   "description": "A Pen created on CodePen.",
   "scripts": {
     "start": "parcel src/index.html --open",
-    "build": "parcel build src/index.html"
+    "build": "parcel build src/index.html --public-url ./"
   },
   "keywords": [],
   "author": "",
